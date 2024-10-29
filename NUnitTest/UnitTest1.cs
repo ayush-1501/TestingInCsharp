@@ -6,13 +6,13 @@ namespace BankNUnitTests
 {
     public class BankAccountTests
     {
-        private BankClass account;
+        private BankClassT account;
 
         [SetUp]
         public void Setup()
         {
             // ARRANGE
-            account = new BankClass(1000);
+            account = new BankClassT(1000);
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace BankNUnitTests
         public void Transfering_Funds_Updates_Both_Accounts()
         {
             // ARRANGE
-            var otherAccount = new BankClass();
+            var otherAccount = new BankClassT();
 
             // ACT
             account.TransferFundsTo(otherAccount, 500);

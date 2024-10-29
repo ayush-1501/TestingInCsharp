@@ -6,12 +6,12 @@ namespace Bank.Tests
     [TestFixture]
     public class BankAccountTests
     {
-        private BankClass account;
+        private BankClassT account;
 
         [SetUp]
         public void Setup()
         {
-            account = new BankClass(100.0); // Initialize account with a balance of 100
+            account = new BankClassT(100.0); // Initialize account with a balance of 100
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace Bank.Tests
         [TestCase(200.0, 0.0, 100.0)] // Transfer all, should result in 0 and 100 balance
         public void TransferFundsTo_ShouldTransferFunds_WhenValidAmountAndAccount(double amountToTransfer, double expectedSourceBalance, double expectedTargetBalance)
         {
-            var targetAccount = new BankClass(50.0);
+            var targetAccount = new BankClassT(50.0);
             account.TransferFundsTo(targetAccount, amountToTransfer);
 
             Assert.AreEqual(expectedSourceBalance, account.Balance);
@@ -75,7 +75,7 @@ namespace Bank.Tests
         [TestCase(200.0)] // Test transferring more than the balance
         public void TransferFundsTo_ShouldThrowArgumentOutOfRangeException_WhenTransferAmountIsGreaterThanBalance(double amountToTransfer)
         {
-            var targetAccount = new BankClass(50.0);
+            var targetAccount = new BankClassT(50.0);
             Assert.Throws<ArgumentOutOfRangeException>(() => account.TransferFundsTo(targetAccount, amountToTransfer));
         }
     }

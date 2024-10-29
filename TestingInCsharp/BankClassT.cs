@@ -3,15 +3,15 @@
 namespace Bank
 {
 
-    public class BankClass
+    public class BankClassT
     {
         private double balance;
 
-        public BankClass()
+        public BankClassT()
         {
         }
 
-        public BankClass(double balance)
+        public BankClassT(double balance)
         {
             this.balance = balance;
         }
@@ -46,7 +46,7 @@ namespace Bank
             balance -= amount;
         }
 
-        public void TransferFundsTo(BankClass otherAccount, double amount)
+        public void TransferFundsTo(BankClassT otherAccount, double amount)
         {
             if (otherAccount is null)
             {
